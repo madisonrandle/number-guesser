@@ -6,7 +6,7 @@ var minRangeInput = document.querySelector("#min-range-input"); -
 var maxRangeInput = document.querySelector("#max-range-input"); -
 var submitBtn = document.querySelector("#submit-btn");
 var clearFormBtn = document.querySelector("#clear-btn");
-var updateBtn = document.querySelector("#update-btn"); -
+var updateBtn = document.querySelector("#update-btn");
 var nameOneErrorMsg = document.querySelector("#name-1-error");
 var nameTwoErrorMsg = document.querySelector("#name-2-error");
 var defaultStyling = document.querySelector("#latest-guess-wrapper");
@@ -14,8 +14,8 @@ var showGuessOne = document.querySelector("#challenger-1-guess");
 var showGuessTwo = document.querySelector("#challenger-2-guess");
 var showNameOne = document.querySelector("#challenger-1-name");
 var showNameTwo = document.querySelector("#challenger-2-name");
-var showMinNumber = document.querySelector("#min-number"); -
-var showMaxNumber = document.querySelector("#max-number"); -
+var showMinNumber = document.querySelector("#min-number");
+var showMaxNumber = document.querySelector("#max-number");
 var challengerOneHint = document.querySelector("#challenger-1-hint");
 var challengerTwoHint = document.querySelector("#challenger-2-hint");
 var min = 1;
@@ -25,6 +25,7 @@ nameOneInput.addEventListener("keyup", enableSubmitBtn);
 nameTwoInput.addEventListener("keyup", enableSubmitBtn);
 guessOneInput.addEventListener("keyup", enableSubmitBtn);
 guessTwoInput.addEventListener("keyup", enableSubmitBtn);
+updateBtn.addEventListener.("click", showMinAndMaxRange);
 clearFormBtn.addEventListener("click", clearForm);
 submitBtn.addEventListener("click", clickSubmitBtn);
 window.addEventListener("load", pageLoad);
@@ -116,8 +117,9 @@ function clickSubmitBtn() {
 };
 
 function showMinAndMaxRange() {
-
-}
+  showMinRange.insertAdjacentHTML("afterbegin", `<p>${nameOneInput.value}</p>`);
+  showMaxRange.insertAdjacentHTML("afterbegin", `<p>${nameTwoInput.value}</p>`);
+};
 
 function showNameAndGuess() {
   showNameOne.insertAdjacentHTML("afterbegin", `<p>${nameOneInput.value}</p>`);
