@@ -2,8 +2,8 @@ var nameOneInput = document.querySelector("#challenger-1-name-input");
 var nameTwoInput = document.querySelector("#challenger-2-name-input");
 var guessOneInput = document.querySelector("#challenger-1-guess-input");
 var guessTwoInput = document.querySelector("#challenger-2-guess-input");
-var minRangeInput = document.querySelector("#min-range-input"); -
-var maxRangeInput = document.querySelector("#max-range-input"); -
+var minRangeInput = document.querySelector("#min-range-input");
+var maxRangeInput = document.querySelector("#max-range-input");
 var submitBtn = document.querySelector("#submit-btn");
 var clearFormBtn = document.querySelector("#clear-btn");
 var updateBtn = document.querySelector("#update-btn");
@@ -21,16 +21,16 @@ var challengerTwoHint = document.querySelector("#challenger-2-hint");
 var min = 1;
 var max = 100;
 
-nameOneInput.addEventListener("keyup", enableSubmitBtn);
-nameTwoInput.addEventListener("keyup", enableSubmitBtn);
-guessOneInput.addEventListener("keyup", enableSubmitBtn);
-guessTwoInput.addEventListener("keyup", enableSubmitBtn);
-updateBtn.addEventListener.("click", showMinAndMaxRange);
+nameOneInput.addEventListener("keyup", enableBtn);
+nameTwoInput.addEventListener("keyup", enableBtn);
+guessOneInput.addEventListener("keyup", enableBtn);
+guessTwoInput.addEventListener("keyup", enableBtn);
+updateBtn.addEventListener("click", showMinAndMaxRange);
 clearFormBtn.addEventListener("click", clearForm);
 submitBtn.addEventListener("click", clickSubmitBtn);
 window.addEventListener("load", pageLoad);
 
-function enableSubmitBtn() {
+function enableBtn() {
   checkNameOneInput();
   checkNameTwoInput();
   enableClearFormBtn();
@@ -68,10 +68,16 @@ function enableClearFormBtn() {
   }
 };
 
+function enableUpdateBtn() {
+  if (minRangeInput.value !== "" && maxRangeInput.value !== "") {
+    updateBtn.disabled = false;
+  }
+};
+
 function clearForm() {
   var clearForm = document.querySelector("#guess-form");
   clearForm.reset();
-  enableSubmitBtn();
+  enableBtn();
   submitBtn.disabled = true;
 };
 
@@ -116,9 +122,14 @@ function clickSubmitBtn() {
   clearGuess();
 };
 
+// function clickUpdateBtn() {
+//   showMinAndMaxRange();
+// }
+
 function showMinAndMaxRange() {
-  showMinRange.insertAdjacentHTML("afterbegin", `<p>${nameOneInput.value}</p>`);
-  showMaxRange.insertAdjacentHTML("afterbegin", `<p>${nameTwoInput.value}</p>`);
+  showMinRange.insertAdjacentHTML("afterbegin", `<p>${minRangeInput.value}</p>`);
+  showMaxRange.insertAdjacentHTML("afterbegin", `<p>${maxRangeInput.value}</p>`);
+  updatetBtn.classList.remove("active-btn");
 };
 
 function showNameAndGuess() {
