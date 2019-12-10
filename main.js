@@ -16,6 +16,7 @@ var showNameOne = document.querySelector("#challenger-1-name");
 var showNameTwo = document.querySelector("#challenger-2-name");
 var showMinNumber = document.querySelector("#min-number");
 var showMaxNumber = document.querySelector("#max-number");
+var showRange = document.querySelector("#range");
 var challengerOneHint = document.querySelector("#challenger-1-hint");
 var challengerTwoHint = document.querySelector("#challenger-2-hint");
 var min = 1;
@@ -25,7 +26,9 @@ nameOneInput.addEventListener("keyup", enableBtn);
 nameTwoInput.addEventListener("keyup", enableBtn);
 guessOneInput.addEventListener("keyup", enableBtn);
 guessTwoInput.addEventListener("keyup", enableBtn);
-updateBtn.addEventListener("click", showMinAndMaxRange);
+minRangeInput.addEventListener("keyup", enableUpdateBtn);
+maxRangeInput.addEventListener("keyup", enableUpdateBtn);
+updateBtn.addEventListener("click", clickUpdateBtn);
 clearFormBtn.addEventListener("click", clearForm);
 submitBtn.addEventListener("click", clickSubmitBtn);
 window.addEventListener("load", pageLoad);
@@ -68,12 +71,6 @@ function enableClearFormBtn() {
   }
 };
 
-function enableUpdateBtn() {
-  if (minRangeInput.value !== "" && maxRangeInput.value !== "") {
-    updateBtn.disabled = false;
-  }
-};
-
 function clearForm() {
   var clearForm = document.querySelector("#guess-form");
   clearForm.reset();
@@ -112,6 +109,11 @@ function clearGuess() {
   guessTwoInput.value = "";
 };
 
+function clearRange() {
+  minRangeInput.value = "";
+  maxRangeInput.value = "";
+}
+
 function clickSubmitBtn() {
   showPlaceHolders();
   hideDefault();
@@ -122,14 +124,30 @@ function clickSubmitBtn() {
   clearGuess();
 };
 
-// function clickUpdateBtn() {
-//   showMinAndMaxRange();
-// }
+function clickUpdateBtn() {
+  enableUpdateBtn();
+  hideRangeDefault();
+  showMinAndMaxRange();
+  showRange.classList.remove("hidden");
+  clearRange();
+};
+
+function enableUpdateBtn() {
+  if (minRangeInput.value !== "" && maxRangeInput.value !== "") {
+    updateBtn.disabled = false;
+    updateBtn.classList.add("active-btn");
+  } else {
+    updateBtn.classList.remove("active-btn");
+  }
+};
 
 function showMinAndMaxRange() {
-  showMinRange.insertAdjacentHTML("afterbegin", `<p>${minRangeInput.value}</p>`);
-  showMaxRange.insertAdjacentHTML("afterbegin", `<p>${maxRangeInput.value}</p>`);
-  updatetBtn.classList.remove("active-btn");
+  showMinNumber.insertAdjacentHTML("afterbegin", `<p>${minRangeInput.value}</p>`);
+  showMaxNumber.insertAdjacentHTML("afterbegin", `<p>${maxRangeInput.value}</p>`);
+  updateBtn.classList.remove("active-btn");
+  updateBtn.disabled = true;
+  showMinNumber.classList.remove("hidden");
+  showMaxNumber.classList.remove("hidden");
 };
 
 function showNameAndGuess() {
@@ -158,13 +176,19 @@ function hideDefault() {
   hintTwo.classList.add("hidden");
 };
 
-function hidePlaceHolders() {
+function hideRangeDefault() {
+  var numberRange = document.querySelector("#range-placeholder");
+  numberRange.classList.add("hidden");
+};
+
+function hide() {
   challengerOneHint.classList.add("hidden");
   challengerTwoHint.classList.add("hidden");
   showNameOne.classList.add("hidden");
   showNameTwo.classList.add("hidden");
   showGuessOne.classList.add("hidden");
   showGuessTwo.classList.add("hidden");
+  showRange.classList.add("hidden");
 };
 
 function showPlaceHolders() {
@@ -177,5 +201,5 @@ function showPlaceHolders() {
 };
 
 function pageLoad() {
-  hidePlaceHolders();
+  hide();
 };
