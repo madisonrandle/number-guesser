@@ -16,7 +16,7 @@ main {
  "left right";
 }
 
-/* IMAGE STYLING FOR HEADER */
+/* HEADER */
 .header-image {
   background: no-repeat;
   background-color: #404041;
@@ -61,6 +61,7 @@ h4 {
 #right-side-wrapper {
   background-color: #d0d2d3;
   grid-area: right;
+  padding: 3% 5%;
 }
 
 .game-section-wrapper {
@@ -206,7 +207,9 @@ width: 1%;
 }
 
 /* RIGHT SIDE STYLING */
-
+.card {
+  margin-bottom: 2%;
+}
 
 /* BUTTONS */
 .gray-btn {
