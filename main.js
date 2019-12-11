@@ -21,6 +21,9 @@ var challengerOneHint = document.querySelector("#challenger-1-hint");
 var challengerTwoHint = document.querySelector("#challenger-2-hint");
 var min = 1;
 var max = 100;
+var challengerMax;
+var challengerMin;
+var winningNumber = parseInt(Math.random() * (max - min) + min);
 
 nameOneInput.addEventListener("keyup", enableBtn);
 nameTwoInput.addEventListener("keyup", enableBtn);
@@ -102,6 +105,7 @@ function checkChallengerTwoGuess() {
 
 function generateWinningNumber(min, max) {
   winningNumber = parseInt(Math.random() * (max - min) + min);
+  console.log('The winning number is:', winningNumber);
 };
 
 function clearGuess() {
@@ -117,7 +121,6 @@ function clearRange() {
 function clickSubmitBtn() {
   showPlaceHolders();
   hideDefault();
-  generateWinningNumber(min, max);
   checkChallengerOneGuess();
   checkChallengerTwoGuess();
   showNameAndGuess();
@@ -129,7 +132,12 @@ function clickUpdateBtn() {
   hideRangeDefault();
   showMinAndMaxRange();
   showRange.classList.remove("hidden");
+  challengerMin = parseInt(minRangeInput.value);
+  challengerMax = parseInt(maxRangeInput.value);
+  generateWinningNumber(challengerMax, challengerMin);
   clearRange();
+  console.log('Minimum number set:', challengerMin);
+  console.log('Maximum number set:', challengerMax);
 };
 
 function enableUpdateBtn() {
