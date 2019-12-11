@@ -16,7 +16,7 @@ main {
  "left right";
 }
 
-/* IMAGE STYLING FOR HEADER */
+/* HEADER */
 .header-image {
   background: no-repeat;
   background-color: #404041;
@@ -24,29 +24,17 @@ main {
   justify-content: center;
 }
 
+/* IMAGES */
 img {
   width: 100%;
 }
 
-/* HEADINGS */
-h2 {
-  color: #DEDEDE;
-  font-weight: 100;
-  font-size: 32px;
-  padding-bottom: 2%;
-  margin-top: -2%;
+.error-wrapper-icon {
+  width: 7%;
 }
 
-h3 {
-  color: #404041;
-  font-size: 25px;
-}
-
-h4 {
-  color: #404041;
-  font-size: 22px;
-  font-weight: 300;
-  padding-top: 0.4%;
+#close-icon {
+  width: 5%;
 }
 
 /* WRAPPERS */
@@ -60,7 +48,9 @@ h4 {
 
 #right-side-wrapper {
   background-color: #d0d2d3;
+  color: #404041;
   grid-area: right;
+  padding: 3% 5%;
 }
 
 .game-section-wrapper {
@@ -70,13 +60,16 @@ h4 {
   padding: 2% 2% 0;
 }
 
+.card-wrapper {
+  border: 2px solid #B4B4B4;
+  margin-bottom: 2%;
+  padding: 2%;
+  text-align: center;
+}
+
 #set-range-wrapper {
   display: flex;
   margin-bottom: 5.5%;
-}
-
-.error-wrapper-icon {
-  width: 7%;
 }
 
 .challenger-wrapper {
@@ -96,6 +89,46 @@ h4 {
   justify-content: space-around;
   margin: 2%;
   text-align: center;
+}
+
+#card-top-wrapper {
+  border-bottom: 1px solid #B4B4B4;
+  text-transform: uppercase;
+}
+
+#card-middle-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+#card-bottom-wrapper {
+  border-top: 1px solid #B4B4B4;
+  display: flex;
+  font-size: 20px;
+  justify-content: space-between;
+  padding-top: 2%;
+  text-transform: uppercase;
+}
+
+/* HEADINGS */
+h2 {
+  color: #404041;
+  font-weight: 100;
+  font-size: 38px;
+  padding-bottom: 2%;
+  margin: -2% 0 2%;
+}
+
+h3 {
+  color: #404041;
+  font-size: 25px;
+}
+
+h4 {
+  color: #404041;
+  font-size: 22px;
+  font-weight: 300;
+  padding-top: 0.4%;
 }
 
 /* INPUTS */
@@ -199,14 +232,50 @@ h4 {
 }
 
 #vertical-line {
-border-left: 2px solid #d0d2d3;
-height: inherit;
-margin: -6% 0 1%;
-width: 1%;
+  border-left: 2px solid #d0d2d3;
+  height: inherit;
+  margin: -6% 0 1%;
+  width: 1%;
 }
 
 /* RIGHT SIDE STYLING */
+#card-text {
+  color: #404041;
+}
 
+#vs {
+  padding-bottom: 2%;
+}
+
+#challenger-names {
+  font-size: 22px;
+}
+
+#winner-name {
+  color: #404041;
+  font-weight: 700;
+  margin: 4% 0 0;
+  text-transform: uppercase;
+}
+
+#card-challenger-1-name,
+#card-challenger-2-name {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+#card-challenger-1-name {
+  margin-right: 3%;
+}
+
+#card-challenger-2-name {
+  margin-left: 3%;
+}
+
+.card-span {
+  font-weight: 700;
+
+}
 
 /* BUTTONS */
 .gray-btn {
