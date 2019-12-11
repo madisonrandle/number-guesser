@@ -24,6 +24,7 @@ var max = 100;
 var challengerMax;
 var challengerMin;
 var winningNumber = parseInt(Math.random() * (max - min) + min);
+var cardContainer = document.querySelector('#card-wrapper');
 
 nameOneInput.addEventListener("keyup", enableBtn);
 nameTwoInput.addEventListener("keyup", enableBtn);
