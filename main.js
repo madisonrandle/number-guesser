@@ -24,6 +24,7 @@ var max = 100;
 var challengerMax;
 var challengerMin;
 var winningNumber = parseInt(Math.random() * (max - min) + min);
+var cardContainer = document.querySelector('.card-container');
 
 nameOneInput.addEventListener("keyup", enableBtn);
 nameTwoInput.addEventListener("keyup", enableBtn);
@@ -89,6 +90,7 @@ function checkChallengerOneGuess() {
     challengerOneHint.insertAdjacentHTML("afterbegin", "<p>that's too high</p>");
   } else if (parsed === winningNumber) {
     challengerOneHint.insertAdjacentHTML("afterbegin", "<p>BOOM!</p>");
+    addCard();
   }
 };
 
@@ -100,6 +102,7 @@ function checkChallengerTwoGuess() {
     challengerTwoHint.insertAdjacentHTML("afterbegin", "<p>that's too high</p>");
   } else if (parsed === winningNumber) {
     challengerTwoHint.insertAdjacentHTML("afterbegin", "<p>BOOM!</p>");
+    addCard();
   }
 };
 
@@ -206,6 +209,25 @@ function showPlaceHolders() {
   showNameTwo.classList.remove("hidden");
   showGuessOne.classList.remove("hidden");
   showGuessTwo.classList.remove("hidden");
+};
+
+function addCard() {
+cardContainer.insertAdjacentHTML("afterbegin", `
+  <section class="game-section-wrapper card-wrapper">
+    <div id="card-top-wrapper">
+      <p id="vs" id="challenger-names"><span id="card-challenger-1-name">${nameOneInput.value}</span> vs <span id="card-challenger-2-name">${nameTwoInput.value}</span></p>
+    </div>
+    <div id="card-middle-wrapper">
+      <h2 id="winner-name">challenger 2 name</h2>
+      <h2>WINNER</h2>
+    </div>
+    <div id="card-bottom-wrapper">
+      <p><span class="card-span" id="guesses">47</span> guesses</p>
+      <p><span class="card-span" id="minute">0</span> minute <span class="card-span" id="second">23</span> second</p>
+      <img id="close-icon" src="" alt="">
+    </div>
+  </section>
+`);
 };
 
 function pageLoad() {
