@@ -24,7 +24,7 @@ var max = 100;
 var challengerMax;
 var challengerMin;
 var winningNumber = parseInt(Math.random() * (max - min) + min);
-var cardContainer = document.querySelector(".card-container");
+var cardContainer = document.querySelector("#card-container");
 var guessCount = 0;
 
 nameOneInput.addEventListener("keyup", enableBtn);
@@ -36,7 +36,14 @@ maxRangeInput.addEventListener("keyup", enableUpdateBtn);
 updateBtn.addEventListener("click", clickUpdateBtn);
 clearFormBtn.addEventListener("click", clearForm);
 submitBtn.addEventListener("click", clickSubmitBtn);
+cardContainer.addEventListener("click", removeCard);
 window.addEventListener("load", pageLoad);
+
+function removeCard(event) {
+  if (event.target.classList.contains("close-icon")) {
+  event.target.parentElement.parentElement.remove();
+}
+}
 
 function enableBtn() {
   checkNameOneInput();
@@ -227,7 +234,7 @@ cardContainer.insertAdjacentHTML("afterbegin", `
     <div id="card-bottom-wrapper">
       <p><span class="card-span" id="guesses">${guessCount}</span> guesses</p>
       <p><span class="card-span" id="minute">0</span> minute <span class="card-span" id="second">23</span> second</p>
-      <img id="close-icon" src="./assets/delete.svg" alt="">
+      <img class="close-icon" src="./assets/delete.svg" alt="">
     </div>
   </section>
 `);
