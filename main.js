@@ -24,7 +24,7 @@ var max = 100;
 var challengerMax;
 var challengerMin;
 var winningNumber = parseInt(Math.random() * (max - min) + min);
-var cardContainer = document.querySelector(".card-container");
+var cardContainer = document.querySelector("#card-container");
 var guessCount = 0;
 
 nameOneInput.addEventListener("keyup", enableBtn);
@@ -36,6 +36,7 @@ maxRangeInput.addEventListener("keyup", enableUpdateBtn);
 updateBtn.addEventListener("click", clickUpdateBtn);
 clearFormBtn.addEventListener("click", clearForm);
 submitBtn.addEventListener("click", clickSubmitBtn);
+cardContainer.addEventListener("click", removeCard);
 window.addEventListener("load", pageLoad);
 
 function enableBtn() {
