@@ -25,8 +25,7 @@ var challengerMax;
 var challengerMin;
 var winningNumber = parseInt(Math.random() * (max - min) + min);
 var cardContainer = document.querySelector(".card-container");
-// var count +=;
-// var numberOfGuesses = document.querySelector("");
+var guessCount = 0;
 
 nameOneInput.addEventListener("keyup", enableBtn);
 nameTwoInput.addEventListener("keyup", enableBtn);
@@ -126,6 +125,8 @@ function clearRange() {
 function clickSubmitBtn() {
   showPlaceHolders();
   hideDefault();
+  guessCount += 2;
+  console.log('guess count:', guessCount);
   checkChallengerOneGuess();
   checkChallengerTwoGuess();
   showNameAndGuess();
@@ -224,7 +225,7 @@ cardContainer.insertAdjacentHTML("afterbegin", `
       <h2>WINNER</h2>
     </div>
     <div id="card-bottom-wrapper">
-      <p><span class="card-span" id="guesses">47</span> guesses</p>
+      <p><span class="card-span" id="guesses">${guessCount}</span> guesses</p>
       <p><span class="card-span" id="minute">0</span> minute <span class="card-span" id="second">23</span> second</p>
       <img id="close-icon" src="./assets/delete.svg" alt="">
     </div>
