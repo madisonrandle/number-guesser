@@ -209,6 +209,23 @@ function showPlaceHolders() {
   showGuessTwo.classList.remove("hidden");
 };
 
+function addCard() {
+cardContainer.insertAdjacentHTML("afterbegin", `
+  <div id="card-top-wrapper">
+    <p id="vs" id="challenger-names"><span id="card-challenger-1-name">${nameOneInput.value}</span> vs <span id="card-challenger-2-name">${nameTwoInput.value}</span></p>
+  </div>
+  <div id="card-middle-wrapper">
+    <h2 id="winner-name">challenger 2 name</h2>
+    <h2>WINNER</h2>
+  </div>
+  <div id="card-bottom-wrapper">
+    <p><span class="card-span" id="guesses">47</span> guesses</p>
+    <p><span class="card-span" id="minute">0</span> minute <span class="card-span" id="second">23</span> second</p>
+    <img id="close-icon" src="" alt="">
+  </div>
+`);
+};
+
 function pageLoad() {
   hide();
 };
