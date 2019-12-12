@@ -1,6 +1,6 @@
 # Number Guesser
 
-This is a project I worked on in Mod 1 at Turing School of Software and Design. The goal was to create a 2-player game that is that allows the players to set a number range that they will guess between. The player who guesses the correct number generted by the app, first, wins the round. There are hints given to each player when they submit a guess which states if the player has guessed too high, too low or right on the prize. Each round when a player wins, a card is added to the right side of the page that documents the winner's name and how many combined guesses it took to complete the round.
+This is a project I worked on in Mod 1 at Turing School of Software and Design. The goal was to create a 2-player game that allows players to set a number range that they will guess between. The player who guesses the correct number generted by the app, first, wins the round. There are hints given to each player when they submit a guess which states if the player has guessed too high, too low or right on the prize. Each round when a player wins, a card is added to the right side of the page that documents the winner's name and how many combined guesses it took to complete the round.
 
 ## Learning Goals
 * Develop your skills in writing:
