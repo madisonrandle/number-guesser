@@ -86,11 +86,11 @@ img {
   width: 40%;
 }
 
-#update-btn {
+/* #update-btn {
   font-size: 22px;
   height: 55%;
   width: 95%;
-}
+} */
 
 .challenger-wrapper {
   display: flex;
@@ -302,6 +302,19 @@ h4 {
 }
 
 /* BUTTONS */
+
+.non-error-state {
+  font-size: 22px;
+  height: 80%;
+  width: 95%;
+}
+
+.update-btn {
+  font-size: 22px;
+  height: 55%;
+  width: 95%;
+}
+
 .gray-btn {
   background-color: #d0d2d3;
   border: none;
@@ -318,6 +331,8 @@ h4 {
 .active-btn {
   background-color: #6e6e6e;
 }
+
+
 
 #label-input-btn {
   display: flex;
