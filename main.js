@@ -7,8 +7,8 @@ var maxRangeInput = document.querySelector("#max-range-input");
 var submitBtn = document.querySelector("#submit-btn");
 var clearFormBtn = document.querySelector("#clear-btn");
 var updateBtn = document.querySelector("#update-btn");
-var nameOneErrorMsg = document.querySelector("#name-1-error");
-var nameTwoErrorMsg = document.querySelector("#name-2-error");
+// var nameOneErrorMsg = document.querySelector("#name-1-error");
+// var nameTwoErrorMsg = document.querySelector("#name-2-error");
 var defaultStyling = document.querySelector("#latest-guess-wrapper");
 var showGuessOne = document.querySelector("#challenger-1-guess");
 var showGuessTwo = document.querySelector("#challenger-2-guess");
@@ -57,21 +57,21 @@ function enableBtn() {
   }
 };
 
-function checkNameOneInput() {
-  if (nameOneInput.value !== "") {
-    nameOneErrorMsg.classList.add("hidden");
-  } else {
-    nameOneErrorMsg.classList.remove("hidden");
-  }
-};
+// function checkNameOneInput() {
+//   if (nameOneInput.value !== "") {
+//     nameOneErrorMsg.classList.add("hidden");
+//   } else {
+//     nameOneErrorMsg.classList.remove("hidden");
+//   }
+// };
 
-function checkNameTwoInput() {
-  if (nameTwoInput.value !== "") {
-    nameTwoErrorMsg.classList.add("hidden");
-  } else {
-    nameTwoErrorMsg.classList.remove("hidden");
-  }
-};
+// function checkNameTwoInput() {
+//   if (nameTwoInput.value !== "") {
+//     nameTwoErrorMsg.classList.add("hidden");
+//   } else {
+//     nameTwoErrorMsg.classList.remove("hidden");
+//   }
+// };
 
 function enableClearFormBtn() {
   if (nameOneInput.value !== "" || nameTwoInput.value !== "" || guessOneInput.value !== "" || guessTwoInput.value !== "") {
@@ -165,9 +165,7 @@ function enableUpdateBtn() {
 };
 
 function showMinAndMaxRange() {
-  // showMinNumber.insertAdjacentHTML("afterbegin", `<p>${minRangeInput.value}</p>`);
   showMinNumber.innerText = minRangeInput.value;
-  // showMaxNumber.insertAdjacentHTML("afterbegin", `<p>${maxRangeInput.value}</p>`);
   showMaxNumber.innerText = maxRangeInput.value;
   updateBtn.classList.remove("active-btn");
   updateBtn.disabled = true;
