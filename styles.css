@@ -29,7 +29,7 @@ img {
   width: 100%;
 }
 
-.error-wrapper-icon {
+.error-icon {
   width: 7%;
 }
 
@@ -70,6 +70,26 @@ img {
 #set-range-wrapper {
   display: flex;
   margin-bottom: 5.5%;
+}
+
+#range-inputs-wrapper {
+  display: flex;
+}
+
+.error-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#update-btn-wrapper {
+  padding: 3.5% 0 0 4%;
+  width: 40%;
+}
+
+#update-btn {
+  font-size: 22px;
+  height: 55%;
+  width: 95%;
 }
 
 .challenger-wrapper {
@@ -190,6 +210,9 @@ h4 {
   margin-top: 12%;
 }
 
+#max-range-error,
+#guess-1-error,
+#guess-2-error,
 #name-1-error,
 #name-2-error {
   color: #EE448B;
