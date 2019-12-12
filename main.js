@@ -254,4 +254,7 @@ cardContainer.insertAdjacentHTML("afterbegin", `
 
 function pageLoad() {
   hide();
+  console.log('The winning number is:', winningNumber);
+  console.log('Minimum number set:', min);
+  console.log('Maximum number set:', max);
 };
