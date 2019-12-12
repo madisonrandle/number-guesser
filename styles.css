@@ -321,10 +321,10 @@ h4 {
   border-radius: 50px;
   color: #FFFFFF;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   margin: 5% 0% 2.6%;
-  padding: 1.5% 5%;
+  padding: 1.5% 3%;
   transition: background 250ms ease-in-out, transform 150ms ease;
 }
 
