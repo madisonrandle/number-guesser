@@ -20,6 +20,12 @@ var showMaxNumber = document.querySelector("#max-number");
 var showRange = document.querySelector("#range");
 var challengerOneHint = document.querySelector("#challenger-1-hint");
 var challengerTwoHint = document.querySelector("#challenger-2-hint");
+var nameOne = document.querySelector("#name-1-placeholder");
+var nameTwo = document.querySelector("#name-2-placeholder");
+var guessOne = document.querySelector("#guess-1-placeholder");
+var guessTwo = document.querySelector("#guess-2-placeholder");
+var hintOne = document.querySelector("#hint-1-placeholder");
+var hintTwo = document.querySelector("#hint-2-placeholder");
 var min = 1;
 var max = 100;
 var challengerMax;
@@ -100,7 +106,9 @@ function checkChallengerOneGuess() {
     challengerOneHint.innerHTML = "BOOM!";
     addCard(nameOneInput.value);
     guessCount = 0;
-    // clearNames();
+    clearForm();
+    showDefault();
+    hide();
     generateWinningNumber(min, max);
   }
 };
@@ -115,7 +123,9 @@ function checkChallengerTwoGuess() {
     challengerTwoHint.innerHTML = "BOOM!";
     addCard(nameTwoInput.value);
     guessCount = 0;
-    // clearNames();
+    clearForm();
+    showDefault();
+    hide();
     generateWinningNumber(min, max);
   }
 };
@@ -130,18 +140,13 @@ function clearGuess() {
   guessTwoInput.value = "";
 };
 
-// function clearNames() {
-//   nameOneInput.value = "";
-//   nameTwoInput.value = "";
-// }
-
 function clearRange() {
   minRangeInput.value = "";
   maxRangeInput.value = "";
 };
 
 function clickSubmitBtn() {
-  showPlaceHolders();
+  showChallengerInputs();
   hideDefault();
   guessCount += 2;
   console.log('guess count:', guessCount);
@@ -184,8 +189,6 @@ function enableUpdateBtn() {
   }
 };
 
-
-
 function showMinAndMaxRange() {
   showMinNumber.innerText = minRangeInput.value;
   showMaxNumber.innerText = maxRangeInput.value;
@@ -207,18 +210,21 @@ function showNameAndGuess() {
 };
 
 function hideDefault() {
-  var nameOne = document.querySelector("#name-1-placeholder");
-  var nameTwo = document.querySelector("#name-2-placeholder");
-  var guessOne = document.querySelector("#guess-1-placeholder");
-  var guessTwo = document.querySelector("#guess-2-placeholder");
-  var hintOne = document.querySelector("#hint-1-placeholder");
-  var hintTwo = document.querySelector("#hint-2-placeholder");
   nameOne.classList.add("hidden");
   nameTwo.classList.add("hidden");
   guessOne.classList.add("hidden");
   guessTwo.classList.add("hidden");
   hintOne.classList.add("hidden");
   hintTwo.classList.add("hidden");
+};
+
+function showDefault() {
+  nameOne.classList.remove("hidden");
+  nameTwo.classList.remove("hidden");
+  guessOne.classList.remove("hidden");
+  guessTwo.classList.remove("hidden");
+  hintOne.classList.remove("hidden");
+  hintTwo.classList.remove("hidden");
 };
 
 function hideRangeDefault() {
@@ -236,7 +242,7 @@ function hide() {
   showRange.classList.add("hidden");
 };
 
-function showPlaceHolders() {
+function showChallengerInputs() {
   challengerOneHint.classList.remove("hidden");
   challengerTwoHint.classList.remove("hidden");
   showNameOne.classList.remove("hidden");
