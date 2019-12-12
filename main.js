@@ -165,8 +165,10 @@ function enableUpdateBtn() {
 };
 
 function showMinAndMaxRange() {
-  showMinNumber.insertAdjacentHTML("afterbegin", `<p>${minRangeInput.value}</p>`);
-  showMaxNumber.insertAdjacentHTML("afterbegin", `<p>${maxRangeInput.value}</p>`);
+  // showMinNumber.insertAdjacentHTML("afterbegin", `<p>${minRangeInput.value}</p>`);
+  showMinNumber.innerText = minRangeInput.value;
+  // showMaxNumber.insertAdjacentHTML("afterbegin", `<p>${maxRangeInput.value}</p>`);
+  showMaxNumber.innerText = maxRangeInput.value;
   updateBtn.classList.remove("active-btn");
   updateBtn.disabled = true;
   showMinNumber.classList.remove("hidden");
