@@ -46,8 +46,8 @@ function removeCard(event) {
 };
 
 function enableBtn() {
-  checkNameOneInput();
-  checkNameTwoInput();
+  // checkNameOneInput();
+  // checkNameTwoInput();
   enableClearFormBtn();
   if (nameOneInput.value !== "" && nameTwoInput.value !== "" && guessOneInput.value !== "" && guessTwoInput.value !== "") {
     submitBtn.disabled = false;
@@ -88,6 +88,7 @@ function clearForm() {
   clearForm.reset();
   enableBtn();
   submitBtn.disabled = true;
+  // guessCount = 0;
 };
 
 function checkChallengerOneGuess() {
@@ -100,6 +101,7 @@ function checkChallengerOneGuess() {
     challengerOneHint.innerHTML = "BOOM!";
     addCard(nameOneInput.value);
     guessCount = 0;
+    clearNames();
   }
 };
 
@@ -113,6 +115,7 @@ function checkChallengerTwoGuess() {
     challengerTwoHint.innerHTML = "BOOM!";
     addCard(nameTwoInput.value);
     guessCount = 0;
+    clearNames();
   }
 };
 
@@ -125,6 +128,11 @@ function clearGuess() {
   guessOneInput.value = "";
   guessTwoInput.value = "";
 };
+
+function clearNames() {
+  nameOneInput.value = "";
+  nameTwoInput.value = "";
+}
 
 function clearRange() {
   minRangeInput.value = "";
