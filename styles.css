@@ -323,7 +323,7 @@ h4 {
   cursor: pointer;
   font-size: 18px;
   font-weight: 700;
-  margin: 5% 1% 2.6%;
+  margin: 5% 0% 2.6%;
   padding: 1.5% 5%;
   transition: background 250ms ease-in-out, transform 150ms ease;
 }
