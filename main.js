@@ -42,8 +42,8 @@ window.addEventListener("load", pageLoad);
 function removeCard(event) {
   if (event.target.classList.contains("close-icon")) {
   event.target.parentElement.parentElement.remove();
-}
-}
+  }
+};
 
 function enableBtn() {
   checkNameOneInput();
@@ -93,24 +93,26 @@ function clearForm() {
 function checkChallengerOneGuess() {
   var parsed = parseInt(guessOneInput.value);
   if (parsed < winningNumber) {
-    challengerOneHint.insertAdjacentHTML("afterbegin", "<p>that's too low</p>");
+    challengerOneHint.innerHTML = "that's too low";
   } else if (parsed > winningNumber) {
-    challengerOneHint.insertAdjacentHTML("afterbegin", "<p>that's too high</p>");
+    challengerOneHint.innerHTML = "that's too high";
   } else if (parsed === winningNumber) {
-    challengerOneHint.insertAdjacentHTML("afterbegin", "<p>BOOM!</p>");
-    addCard();
+    challengerOneHint.innerHTML = "BOOM!";
+    addCard(nameOneInput.value);
+    guessCount = 0;
   }
 };
 
 function checkChallengerTwoGuess() {
   var parsed = parseInt(guessTwoInput.value);
   if (parsed < winningNumber) {
-    challengerTwoHint.insertAdjacentHTML("afterbegin", "<p>that's too low</p>");
+    challengerTwoHint.innerHTML = "that's too low";
   } else if (parsed > winningNumber) {
-    challengerTwoHint.insertAdjacentHTML("afterbegin", "<p>that's too high</p>");
+    challengerTwoHint.innerHTML = "that's too high";
   } else if (parsed === winningNumber) {
-    challengerTwoHint.insertAdjacentHTML("afterbegin", "<p>BOOM!</p>");
-    addCard();
+    challengerTwoHint.innerHTML = "BOOM!";
+    addCard(nameTwoInput.value);
+    guessCount = 0;
   }
 };
 
@@ -127,7 +129,7 @@ function clearGuess() {
 function clearRange() {
   minRangeInput.value = "";
   maxRangeInput.value = "";
-}
+};
 
 function clickSubmitBtn() {
   showPlaceHolders();
@@ -163,8 +165,10 @@ function enableUpdateBtn() {
 };
 
 function showMinAndMaxRange() {
-  showMinNumber.insertAdjacentHTML("afterbegin", `<p>${minRangeInput.value}</p>`);
-  showMaxNumber.insertAdjacentHTML("afterbegin", `<p>${maxRangeInput.value}</p>`);
+  // showMinNumber.insertAdjacentHTML("afterbegin", `<p>${minRangeInput.value}</p>`);
+  showMinNumber.innerText = minRangeInput.value;
+  // showMaxNumber.insertAdjacentHTML("afterbegin", `<p>${maxRangeInput.value}</p>`);
+  showMaxNumber.innerText = maxRangeInput.value;
   updateBtn.classList.remove("active-btn");
   updateBtn.disabled = true;
   showMinNumber.classList.remove("hidden");
@@ -172,10 +176,10 @@ function showMinAndMaxRange() {
 };
 
 function showNameAndGuess() {
-  showNameOne.insertAdjacentHTML("afterbegin", `<p>${nameOneInput.value}</p>`);
-  showNameTwo.insertAdjacentHTML("afterbegin", `<p>${nameTwoInput.value}</p>`);
-  showGuessOne.insertAdjacentHTML("afterbegin", `<p>${guessOneInput.value}</p>`);
-  showGuessTwo.insertAdjacentHTML("afterbegin", `<p>${guessTwoInput.value}</p>`);
+  showNameOne.innerText = nameOneInput.value;
+  showGuessOne.innerText = guessOneInput.value;
+  showNameTwo.innerText = nameTwoInput.value;
+  showGuessTwo.innerText = guessTwoInput.value;
   clearFormBtn.classList.remove("active-btn");
   submitBtn.classList.remove("active-btn");
   submitBtn.disabled = true;
@@ -221,14 +225,14 @@ function showPlaceHolders() {
   showGuessTwo.classList.remove("hidden");
 };
 
-function addCard() {
+function addCard(winner) {
 cardContainer.insertAdjacentHTML("afterbegin", `
   <section class="game-section-wrapper card-wrapper">
     <div id="card-top-wrapper">
       <p id="vs" id="challenger-names"><span id="card-challenger-1-name">${nameOneInput.value}</span> vs <span id="card-challenger-2-name">${nameTwoInput.value}</span></p>
     </div>
     <div id="card-middle-wrapper">
-      <h2 id="winner-name">challenger 2 name</h2>
+      <h2 id="winner-name">${winner}</h2>
       <h2>WINNER</h2>
     </div>
     <div id="card-bottom-wrapper">
