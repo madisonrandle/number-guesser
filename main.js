@@ -102,6 +102,7 @@ function checkChallengerOneGuess() {
     addCard(nameOneInput.value);
     guessCount = 0;
     clearNames();
+    generateWinningNumber(min, max);
   }
 };
 
@@ -116,6 +117,7 @@ function checkChallengerTwoGuess() {
     addCard(nameTwoInput.value);
     guessCount = 0;
     clearNames();
+    generateWinningNumber(min, max);
   }
 };
 
