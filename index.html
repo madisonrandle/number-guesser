@@ -17,15 +17,23 @@
         <section class="game-section-wrapper">
           <h3>Set Range</h3>
           <div id="set-range-wrapper">
-            <div class="label-input">
-              <label class="input-title">Min Range</label>
-              <input type="number" id="min-range-input">
+            <div id="range-inputs-wrapper">
+              <div class="label-input">
+                <label class="input-title">Min Range</label>
+                <input type="number" id="min-range-input">
+              </div>
+              <div class="label-input">
+                <label class="input-title">Max Range</label>
+                <input type="number" id="max-range-input">
+                <div id="max-range-error" class="error-wrapper">
+                  <img class="error-icon" src="./assets/error-icon.svg" alt="error icon">
+                  <p>Must be greater than min</p>
+                </div>
+              </div>
             </div>
-            <div class="label-input">
-              <label class="input-title">Max Range</label>
-              <input type="number" id="max-range-input">
+            <div id="update-btn-wrapper">
+              <button class="gray-btn update-btn non-error-state" disabled>UPDATE</button>
             </div>
-            <button class="gray-btn" id="update-btn" disabled>UPDATE</button>
           </div>
         </section>
         <section class="game-section-wrapper">
@@ -40,13 +48,16 @@
                   <input type="text" id="challenger-1-name-input">
                   <div id="name-1-error" class="error-wrapper hidden">
                     <img  class="error-wrapper-icon" src="./assets/error-icon.svg" alt="error icon">
-                    <p>Enter a name</p>
+                    <p></p>
                   </div>
                 </div>
                 <div class="challenger-sub-wrapper">
                   <label class="input-title">Guess</label>
                   <input type="number" id="challenger-1-guess-input">
-                  <p class=""></p>
+                  <div id="guess-1-error" class="error-wrapper">
+                    <img class="error-wrapper-icon hidden" src="./assets/error-icon.svg" alt="error icon">
+                    <p></p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -64,7 +75,10 @@
                 <div class="challenger-sub-wrapper">
                   <label class="input-title">Guess</label>
                   <input type="number" id="challenger-2-guess-input">
-                  <p class=""></p>
+                  <div id="guess-2-error" class="error-wrapper hidden">
+                    <img class="error-wrapper-icon" src="./assets/error-icon.svg" alt="error icon">
+                    <p></p>
+                  </div>
                 </div>
               </div>
             </div>

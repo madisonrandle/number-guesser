@@ -29,7 +29,7 @@ img {
   width: 100%;
 }
 
-.error-wrapper-icon {
+.error-icon {
   width: 7%;
 }
 
@@ -71,6 +71,26 @@ img {
   display: flex;
   margin-bottom: 5.5%;
 }
+
+#range-inputs-wrapper {
+  display: flex;
+}
+
+.error-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#update-btn-wrapper {
+  padding: 3.5% 0 0 4%;
+  width: 40%;
+}
+
+/* #update-btn {
+  font-size: 22px;
+  height: 55%;
+  width: 95%;
+} */
 
 .challenger-wrapper {
   display: flex;
@@ -190,6 +210,9 @@ h4 {
   margin-top: 12%;
 }
 
+#max-range-error,
+#guess-1-error,
+#guess-2-error,
 #name-1-error,
 #name-2-error {
   color: #EE448B;
@@ -279,6 +302,19 @@ h4 {
 }
 
 /* BUTTONS */
+
+.non-error-state {
+  font-size: 22px;
+  height: 80%;
+  width: 95%;
+}
+
+.update-btn {
+  font-size: 22px;
+  height: 55%;
+  width: 95%;
+}
+
 .gray-btn {
   background-color: #d0d2d3;
   border: none;
@@ -295,6 +331,8 @@ h4 {
 .active-btn {
   background-color: #6e6e6e;
 }
+
+
 
 #label-input-btn {
   display: flex;

@@ -6,9 +6,10 @@ var minRangeInput = document.querySelector("#min-range-input");
 var maxRangeInput = document.querySelector("#max-range-input");
 var submitBtn = document.querySelector("#submit-btn");
 var clearFormBtn = document.querySelector("#clear-btn");
-var updateBtn = document.querySelector("#update-btn");
-// var nameOneErrorMsg = document.querySelector("#name-1-error");
-// var nameTwoErrorMsg = document.querySelector("#name-2-error");
+var updateBtn = document.querySelector(".update-btn");
+var noRangeError = document.querySelector(".non-error-state")
+var maxRangeError = document.querySelector("#max-range-error");
+var error = document.querySelector("#error-wrapper");
 var defaultStyling = document.querySelector("#latest-guess-wrapper");
 var showGuessOne = document.querySelector("#challenger-1-guess");
 var showGuessTwo = document.querySelector("#challenger-2-guess");
@@ -34,6 +35,8 @@ guessTwoInput.addEventListener("keyup", enableBtn);
 minRangeInput.addEventListener("keyup", enableUpdateBtn);
 maxRangeInput.addEventListener("keyup", enableUpdateBtn);
 updateBtn.addEventListener("click", clickUpdateBtn);
+updateBtn.addEventListener("mouseenter", checkMaxRange);
+updateBtn.addEventListener("mouseleave", checkMaxRange);
 clearFormBtn.addEventListener("click", clearForm);
 submitBtn.addEventListener("click", clickSubmitBtn);
 cardContainer.addEventListener("click", removeCard);
@@ -46,8 +49,6 @@ function removeCard(event) {
 };
 
 function enableBtn() {
-  // checkNameOneInput();
-  // checkNameTwoInput();
   enableClearFormBtn();
   if (nameOneInput.value !== "" && nameTwoInput.value !== "" && guessOneInput.value !== "" && guessTwoInput.value !== "") {
     submitBtn.disabled = false;
@@ -57,21 +58,23 @@ function enableBtn() {
   }
 };
 
-// function checkNameOneInput() {
-//   if (nameOneInput.value !== "") {
-//     nameOneErrorMsg.classList.add("hidden");
-//   } else {
-//     nameOneErrorMsg.classList.remove("hidden");
-//   }
-// };
-
-// function checkNameTwoInput() {
-//   if (nameTwoInput.value !== "") {
-//     nameTwoErrorMsg.classList.add("hidden");
-//   } else {
-//     nameTwoErrorMsg.classList.remove("hidden");
-//   }
-// };
+function checkMaxRange() {
+  var parsedMax = parseInt(maxRangeInput.value);
+  var parsedMin = parseInt(minRangeInput.value);
+  if (parsedMax < parsedMin) {
+    maxRangeError.classList.remove("hidden");
+    noRangeError.classList.add("update-btn");
+    noRangeError.classList.remove("non-error-state");
+    updateBtn.disabled = true;
+    updateBtn.classList.remove("active-btn");
+  } else {
+    noRangeError.classList.add("non-error-state");
+    noRangeError.classList.remove("update-btn");
+    maxRangeError.classList.add("hidden");
+    updateBtn.disabled = false;
+    updateBtn.classList.add("active-btn");
+  }
+};
 
 function enableClearFormBtn() {
   if (nameOneInput.value !== "" || nameTwoInput.value !== "" || guessOneInput.value !== "" || guessTwoInput.value !== "") {
@@ -88,7 +91,6 @@ function clearForm() {
   clearForm.reset();
   enableBtn();
   submitBtn.disabled = true;
-  // guessCount = 0;
 };
 
 function checkChallengerOneGuess() {
@@ -153,9 +155,11 @@ function clickSubmitBtn() {
 };
 
 function clickUpdateBtn() {
+  maxRangeError.classList.add("hidden");
   enableUpdateBtn();
   hideRangeDefault();
   showMinAndMaxRange();
+  noRangeError.classList.add("non-error-state");
   showRange.classList.remove("hidden");
   challengerMin = parseInt(minRangeInput.value);
   challengerMax = parseInt(maxRangeInput.value);
@@ -170,7 +174,10 @@ function enableUpdateBtn() {
     updateBtn.disabled = false;
     updateBtn.classList.add("active-btn");
   } else {
+    noRangeError.classList.add("non-error-state");
     updateBtn.classList.remove("active-btn");
+    maxRangeError.classList.add("hidden");
+    noRangeError.classList.remove("update-btn");
   }
 };
 
@@ -254,4 +261,9 @@ cardContainer.insertAdjacentHTML("afterbegin", `
 
 function pageLoad() {
   hide();
+  maxRangeError.classList.add("hidden");
+  noRangeError.classList.remove("update-btn");
+  console.log('The winning number is:', winningNumber);
+  console.log('Minimum number set:', min);
+  console.log('Maximum number set:', max);
 };
