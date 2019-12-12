@@ -99,6 +99,7 @@ function checkChallengerOneGuess() {
   } else if (parsed === winningNumber) {
     challengerOneHint.innerHTML = "BOOM!";
     addCard(nameOneInput.value);
+    guessCount = 0;
   }
 };
 
@@ -111,6 +112,7 @@ function checkChallengerTwoGuess() {
   } else if (parsed === winningNumber) {
     challengerTwoHint.innerHTML = "BOOM!";
     addCard(nameTwoInput.value);
+    guessCount = 0;
   }
 };
 
