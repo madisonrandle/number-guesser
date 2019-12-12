@@ -1,6 +1,6 @@
 # Number Guesser
 
-
+This is a project I worked on in Mod 1 at Turing School of Software and Design. 
 
 ## Learning Goals
 * Develop your skills in writing:
