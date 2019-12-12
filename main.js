@@ -28,6 +28,7 @@ var winningNumber = parseInt(Math.random() * (max - min) + min);
 var cardContainer = document.querySelector("#card-container");
 var guessCount = 0;
 
+
 nameOneInput.addEventListener("keyup", enableBtn);
 nameTwoInput.addEventListener("keyup", enableBtn);
 guessOneInput.addEventListener("keyup", enableBtn);
@@ -35,8 +36,6 @@ guessTwoInput.addEventListener("keyup", enableBtn);
 minRangeInput.addEventListener("keyup", enableUpdateBtn);
 maxRangeInput.addEventListener("keyup", enableUpdateBtn);
 updateBtn.addEventListener("click", clickUpdateBtn);
-updateBtn.addEventListener("mouseenter", checkMaxRange);
-updateBtn.addEventListener("mouseleave", checkMaxRange);
 clearFormBtn.addEventListener("click", clearForm);
 submitBtn.addEventListener("click", clickSubmitBtn);
 cardContainer.addEventListener("click", removeCard);
@@ -66,13 +65,11 @@ function checkMaxRange() {
     noRangeError.classList.add("update-btn");
     noRangeError.classList.remove("non-error-state");
     updateBtn.disabled = true;
-    updateBtn.classList.remove("active-btn");
   } else {
     noRangeError.classList.add("non-error-state");
     noRangeError.classList.remove("update-btn");
     maxRangeError.classList.add("hidden");
     updateBtn.disabled = false;
-    updateBtn.classList.add("active-btn");
   }
 };
 
@@ -103,7 +100,7 @@ function checkChallengerOneGuess() {
     challengerOneHint.innerHTML = "BOOM!";
     addCard(nameOneInput.value);
     guessCount = 0;
-    clearNames();
+    // clearNames();
     generateWinningNumber(min, max);
   }
 };
@@ -118,7 +115,7 @@ function checkChallengerTwoGuess() {
     challengerTwoHint.innerHTML = "BOOM!";
     addCard(nameTwoInput.value);
     guessCount = 0;
-    clearNames();
+    // clearNames();
     generateWinningNumber(min, max);
   }
 };
@@ -133,10 +130,10 @@ function clearGuess() {
   guessTwoInput.value = "";
 };
 
-function clearNames() {
-  nameOneInput.value = "";
-  nameTwoInput.value = "";
-}
+// function clearNames() {
+//   nameOneInput.value = "";
+//   nameTwoInput.value = "";
+// }
 
 function clearRange() {
   minRangeInput.value = "";
@@ -170,16 +167,24 @@ function clickUpdateBtn() {
 };
 
 function enableUpdateBtn() {
-  if (minRangeInput.value !== "" && maxRangeInput.value !== "") {
+  var parsedMax = parseInt(maxRangeInput.value);
+  var parsedMin = parseInt(minRangeInput.value);
+  checkMaxRange();
+  if (parsedMax < parsedMin) {
+    updateBtn.classList.remove("active-btn");
+  } else if (minRangeInput.value !== "" && maxRangeInput.value !== "") {
     updateBtn.disabled = false;
     updateBtn.classList.add("active-btn");
   } else {
+    checkMaxRange();
     noRangeError.classList.add("non-error-state");
     updateBtn.classList.remove("active-btn");
     maxRangeError.classList.add("hidden");
     noRangeError.classList.remove("update-btn");
   }
 };
+
+
 
 function showMinAndMaxRange() {
   showMinNumber.innerText = minRangeInput.value;
